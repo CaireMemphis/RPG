@@ -9,6 +9,8 @@ public class Personnage {
 
     public Personnage(String nom) {
         this.nom = nom;
+        this.atk = 1;
+        this.pv = 10;
     }
 
     public int getPv() {
@@ -33,15 +35,15 @@ public class Personnage {
 
     public void setNom(String nom) {
         this.nom = nom;
+
     }
 
     @Override
     public String toString() {
-        return "Personnage{" +
-                "pv=" + pv +
-                ", atk=" + atk +
-                ", nom='" + nom + '\'' +
-                '}';
+        return "Personnage :" +
+                " nom = '" + nom + '\'' +
+
+                ",PV = "+ pv +", atk = " + atk;
     }
 
     @Override
