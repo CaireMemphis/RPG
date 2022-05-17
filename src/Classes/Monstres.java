@@ -1,21 +1,18 @@
 package Classes;
 
-import java.util.Objects;
+import Interfaces.IPersonnage;
 
-public class Personnage extends AbstractCombattant {
+public class Monstres extends AbstractCombattant {
 
 
-    public Personnage(int pv, int atk, String nom) {
+    public Monstres(int pv, int atk, String nom) {
         super(pv, atk, nom);
-
     }
 
     @Override
     public String toString() {
-        return "Personnage :" +
+        return "Monstre :" +
                 " nom = '" + getNom() + '\'' +
-
                 ",PV = " + getPv() + ", atk = " + getAtk();
     }
-
 }
