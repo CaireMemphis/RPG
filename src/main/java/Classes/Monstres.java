@@ -1,5 +1,6 @@
 package Classes;
 
+import Interfaces.Combattant;
 import Interfaces.IPersonnage;
 
 public class Monstres extends AbstractCombattant {
@@ -15,4 +16,16 @@ public class Monstres extends AbstractCombattant {
                 " nom = '" + getNom() + '\'' +
                 ",PV = " + getPv() + ", atk = " + getAtk();
     }
+
+    @Override
+    public void attaquer(Combattant adversaire) {
+
+    }
+
+    @Override
+    public void defendre(int degats) {
+
+    }
+
+
 }

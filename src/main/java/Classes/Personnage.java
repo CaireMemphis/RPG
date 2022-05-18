@@ -1,5 +1,7 @@
 package Classes;
 
+import Interfaces.Combattant;
+
 import java.util.Objects;
 
 public class Personnage extends AbstractCombattant {
@@ -18,4 +20,13 @@ public class Personnage extends AbstractCombattant {
                 ",PV = " + getPv() + ", atk = " + getAtk();
     }
 
+    @Override
+    public void attaquer(Combattant adversaire) {
+
+    }
+
+    @Override
+    public void defendre(int degats) {
+
+    }
 }
