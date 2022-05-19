@@ -10,15 +10,16 @@ public class Monde {
     static int nbPerso=0;
      static int set1=0;
     static int set2=0;
+    static Random random = new Random();
     public static Personnage personnageFactory(){
         Scanner scan = new Scanner(System.in);
-        String name;
-        System.out.println("Nom du nouveau perso :");
-        name = scan.next();
+        String name = "LEEROY JENKINS";
+        //System.out.println("Nom du nouveau perso :");
+        //name = scan.next();
         System.out.println("------------------------------------------");
         nbPerso++;
-        Personnage perso = new Personnage(300,50, name);
-
+        Personnage perso = new Personnage(1000, 200, name);
+        System.out.println("Nouveau perso : " + perso.getNom() + " !");
         return perso;
     }
 public static void afficherInformations(){
@@ -29,17 +30,30 @@ public static Monstres monstreFactory(){
 String name = genererNom();
 
     ArrayList<Integer>healthPoints = new ArrayList<>();
-    healthPoints.add(0,35);
-    healthPoints.add(1,250);
-    healthPoints.add(2,20);
-    healthPoints.add(3,50);
-    healthPoints.add(4,25);
+
+    healthPoints.add(350);
+    healthPoints.add(4500);
+    healthPoints.add(200);
+    healthPoints.add(500);
+    healthPoints.add(250);
+    healthPoints.add(-100);
+    healthPoints.add(350);
+    healthPoints.add(750);
+    healthPoints.add(1000);
+    healthPoints.add(50);
+
     ArrayList<Integer>hitpoints = new ArrayList<>();
-        hitpoints.add(0,10);
-    hitpoints.add(1,50);
-    hitpoints.add(2,5);
-    hitpoints.add(3,15);
-    hitpoints.add(4,10);
+
+    hitpoints.add(50);
+    hitpoints.add(500);
+    hitpoints.add(20);
+    hitpoints.add(75);
+    hitpoints.add(50);
+    hitpoints.add(200);
+    hitpoints.add(100);
+    hitpoints.add(200);
+    hitpoints.add(350);
+    hitpoints.add(10);
 
         int pv = (healthPoints.get(set1)) + (healthPoints.get(set2));
         int atk = (hitpoints.get(set1)) + (hitpoints.get(set2));
@@ -53,25 +67,37 @@ public static String genererNom(){
 
         //FUS-RHO-DAH !!!
 
-        Random random = new Random();
+
         String nom = "";
     ArrayList<String>debutNom = new ArrayList<>();
 
-    debutNom.add(0,"Draugr ");
-    debutNom.add(1,"Dragon ");
-    debutNom.add(2,"Vasard ");
-    debutNom.add(3,"Atronach ");
-    debutNom.add(4,"Squelette ");
+    debutNom.add("Draugr ");
+    debutNom.add("Dragon ");
+    debutNom.add("Vasard ");
+    debutNom.add("Atronach ");
+    debutNom.add("Squelette ");
+    debutNom.add("Chaurus ");
+    debutNom.add("Loup ");
+    debutNom.add("Golem ");
+    debutNom.add("Geant ");
+    debutNom.add("Ragnard ");
+
     set1 =random.nextInt(debutNom.size());
 
     nom+= debutNom.get(set1);
 
        ArrayList<String>finNom = new ArrayList<>();
-        finNom.add(0,"de feu");
-        finNom.add(1,"Ancien");
-        finNom.add(2,"de sang");
-        finNom.add(3,"de foudre");
-        finNom.add(4,"de glace");
+        finNom.add("de feu");
+        finNom.add("Ancien");
+        finNom.add("de sang");
+        finNom.add("de foudre");
+        finNom.add("de glace");
+        finNom.add("infecté");
+        finNom.add("alpha");
+        finNom.add("Antique");
+        finNom.add("des profondeurs");
+        finNom.add("");
+
         set2 = random.nextInt(finNom.size());
 
 
