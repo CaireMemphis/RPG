@@ -130,10 +130,13 @@ public static void combat(Personnage perso, Monstres mob){
     System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||");
     System.out.println();
         if (perso.getPv()> mob.getPv()){
+
+           Objet crocDeLune = new Objet("Croc de lune","",140);
+            System.out.println("Loot : " + crocDeLune.toString());
+            perso.prendreObjet(crocDeLune);
+            perso.setAtk(perso.getAtk() + crocDeLune.getApport());
             System.out.println(perso.toString());
             System.out.println("Victoire !");
-            Objet
-            perso.prendreObjet();
         }else {
             System.out.println(mob.toString());
             System.out.println("Game Over !");
