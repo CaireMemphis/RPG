@@ -17,15 +17,6 @@ public class Monstres extends AbstractCombattant {
                 ",PV = " + getPv() + ", atk = " + getAtk();
     }
 
-    @Override
-    public void attaquer(Combattant adversaire) {
-
-    }
-
-    @Override
-    public void defendre(int degats) {
-
-    }
 
 
 }

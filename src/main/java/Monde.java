@@ -1,4 +1,5 @@
 import Classes.Monstres;
+import Classes.Objet;
 import Classes.Personnage;
 
 import java.util.ArrayList;
@@ -13,9 +14,8 @@ public class Monde {
     static Random random = new Random();
     public static Personnage personnageFactory(){
         Scanner scan = new Scanner(System.in);
-        String name = "LEEROY JENKINS";
-        //System.out.println("Nom du nouveau perso :");
-        //name = scan.next();
+        System.out.println("Nom du nouveau perso :");
+        String name = scan.next();
         System.out.println("------------------------------------------");
         nbPerso++;
         Personnage perso = new Personnage(1000, 200, name);
@@ -32,7 +32,7 @@ String name = genererNom();
     ArrayList<Integer>healthPoints = new ArrayList<>();
 
     healthPoints.add(350);
-    healthPoints.add(4500);
+    healthPoints.add(1200);
     healthPoints.add(200);
     healthPoints.add(500);
     healthPoints.add(250);
@@ -45,7 +45,7 @@ String name = genererNom();
     ArrayList<Integer>hitpoints = new ArrayList<>();
 
     hitpoints.add(50);
-    hitpoints.add(500);
+    hitpoints.add(300);
     hitpoints.add(20);
     hitpoints.add(75);
     hitpoints.add(50);
@@ -112,24 +112,28 @@ public static void combat(Personnage perso, Monstres mob){
             System.out.println(mob.toString() +"\n"+ perso.toString());
             System.out.println();
             System.out.println("----------------------------------");
-            mob.setPv(mob.getPv()-perso.getAtk());
 
-            System.out.println(perso.getNom() + " : " + perso.getAtk() + "damage !");
+            perso.attaquer(mob);
+
             if(mob.getPv()<=0){break;}
+
             System.out.println("----------------------------------");
             System.out.println(mob.toString() +"\n"+ perso.toString());
             System.out.println();
             System.out.println("----------------------------------");
-            perso.setPv(perso.getPv() - mob.getAtk());
-
-            System.out.println(mob.getNom()+" : " + mob.getAtk() + "damage !");
+            mob.attaquer(perso);
             if(perso.getPv()<=0){break;}
             System.out.println("----------------------------------");
 
         }while(perso.getPv()>0&&mob.getPv()>0);
+    System.out.println();
+    System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||");
+    System.out.println();
         if (perso.getPv()> mob.getPv()){
             System.out.println(perso.toString());
             System.out.println("Victoire !");
+            Objet
+            perso.prendreObjet();
         }else {
             System.out.println(mob.toString());
             System.out.println("Game Over !");
@@ -137,7 +141,42 @@ public static void combat(Personnage perso, Monstres mob){
 
 
 }
+public static void choixObjet(Personnage perso){
+        Scanner scanner =new Scanner(System.in);
+    System.out.println(" choisissez un objet :");
 
+    Objet bagueDeVie = new Objet("Bague de vie","acroit la santé de 50 points",200);
+       Objet grandeEpee = new Objet("Grande Epee","augmente la force de 60 points",100);
+       Objet lance = new Objet("Lance", "augmente l'attaque de 45 points ",75);
+    System.out.println("choix 1 : "+bagueDeVie.toString());
+    System.out.println("choix 2 : "+grandeEpee.toString());
+    System.out.println("choix 3 : "+lance.toString());
+
+    int choix = scanner.nextInt();
+
+
+        switch (choix){
+            case (1):{
+                perso.prendreObjet(bagueDeVie);
+                perso.setPv(perso.getPv() + bagueDeVie.getApport());
+                break;
+            }
+            case (2):{
+                perso.prendreObjet(grandeEpee);
+                perso.setAtk(perso.getAtk() + grandeEpee.getApport());
+                break;
+            }
+            case (3):{
+                perso.prendreObjet(lance);
+                perso.setAtk(perso.getAtk() + lance.getApport());
+                break;
+            }
+        }
+
+
+
+
+}
 
 
 
