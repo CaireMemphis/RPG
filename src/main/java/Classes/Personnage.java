@@ -7,10 +7,18 @@ import java.util.Objects;
 
 public class Personnage extends AbstractCombattant {
 ArrayList<Objet> objets = new ArrayList<>();
-
+static int pvTotal;
     public Personnage(int pv, int atk, String nom) {
         super(pv, atk, nom);
+pvTotal = pv;
+    }
 
+    public ArrayList<Objet> getObjets() {
+        return objets;
+    }
+
+    public static int getPvTotal() {
+        return pvTotal;
     }
 
     @Override
@@ -25,11 +33,13 @@ ArrayList<Objet> objets = new ArrayList<>();
         objets.add(objet);
         setAtk(getAtk()+objet.getApportAtk());
         setPv(getPv()+ objet.getApportPv());
+        pvTotal += objet.getApportPv();
 
     }
     public void lacherObjet(Objet objet){
         setAtk(getAtk() - objet.getApportAtk());
         setPv(getPv() - objet.getApportPv());
+        pvTotal -= objet.getApportPv();
         objets.remove(objet);
     }
     public String voirObjet(){

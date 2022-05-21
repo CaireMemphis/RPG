@@ -136,6 +136,7 @@ Objet loot = loot();
             perso.prendreObjet(loot);
             System.out.println(perso.toString());
             System.out.println("Victoire !");
+            repos(perso);
         }else {
             System.out.println(mob.toString());
             System.out.println("Game Over !");
@@ -182,8 +183,6 @@ public static Objet loot(){
 
 
 
-
-
     Objet crocDeLune = new Objet("Croc de Lune","",140,150);
         Objet rasoir = new Objet("Rasoir du fou","rasoir enchanté à ajouter à son bracelet",160,-80);
         Objet cotteDeMaille = new Objet("Cotte de maille","Cotte de maille rouillé à l'entreJambes",0,200);
@@ -221,5 +220,20 @@ public static Objet loot(){
 
    return loots.get(hasard);
 }
+public static void repos(Personnage perso){
+        Scanner scan = new Scanner(System.in);
+    System.out.println("Que voulez vous faire ? Se reposer puis continuer : 1 // Continuer directement : autre touche");
+        int choix = scan.nextInt();
+        if(choix == 1) {
+            perso.setPv(perso.getPvTotal());
+        }
+
+        }
+
+
+
 
 }
+
+
+
