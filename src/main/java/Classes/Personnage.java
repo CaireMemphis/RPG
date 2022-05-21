@@ -23,8 +23,13 @@ ArrayList<Objet> objets = new ArrayList<>();
 
     public void prendreObjet(Objet objet){
         objets.add(objet);
+        setAtk(getAtk()+objet.getApportAtk());
+        setPv(getPv()+ objet.getApportPv());
+
     }
     public void lacherObjet(Objet objet){
+        setAtk(getAtk() - objet.getApportAtk());
+        setPv(getPv() - objet.getApportPv());
         objets.remove(objet);
     }
     public String voirObjet(){

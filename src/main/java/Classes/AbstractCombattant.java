@@ -92,32 +92,24 @@ return txCritiq;
         Random random = new Random();
         int pourcenCritique = random.nextInt(100);
         if (pourcenCritique<=2){
-            txCritiq = 0.2;
-            System.out.println("taux : +80%");
+            txCritiq = 0.0;
+            System.out.println("taux : +100%");
         }
         if (pourcenCritique>=3 && pourcenCritique<6){
-            txCritiq = 0.6;
-            System.out.println("taux : +40%");
+            txCritiq = 0.7;
+            System.out.println("taux : +70%");
         }
         if (pourcenCritique>=6 && pourcenCritique<15){
+            txCritiq = 0.5;
+            System.out.println("taux : +50%");
+        }
+        if (pourcenCritique>=16 && pourcenCritique<40){
             txCritiq = 0.85;
             System.out.println("taux : +15%");
         }
-        if (pourcenCritique>=16 && pourcenCritique<87){
+        if (pourcenCritique>=40 && pourcenCritique<=100){
             txCritiq = 1;
             System.out.println("taux : nul");
-        }
-        if (pourcenCritique>=87 && pourcenCritique<95){
-            txCritiq = 1.15;
-            System.out.println("taux : -15%");
-        }
-        if (pourcenCritique>=95 && pourcenCritique<99){
-            txCritiq = 1.4;
-            System.out.println("taux : -40%");
-        }
-        if (pourcenCritique>=99 && pourcenCritique<=100){
-            txCritiq = 1.8;
-            System.out.println("taux : -80%");
         }
 
         return txCritiq;

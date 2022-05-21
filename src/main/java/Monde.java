@@ -130,16 +130,16 @@ public static void combat(Personnage perso, Monstres mob){
     System.out.println("||||||||||||||||||||||||||||||||||||||||||||||||");
     System.out.println();
         if (perso.getPv()> mob.getPv()){
+Objet loot = loot();
 
-           Objet crocDeLune = new Objet("Croc de lune","",140);
-            System.out.println("Loot : " + crocDeLune.toString());
-            perso.prendreObjet(crocDeLune);
-            perso.setAtk(perso.getAtk() + crocDeLune.getApport());
+            System.out.println("Loot : " + loot );
+            perso.prendreObjet(loot);
             System.out.println(perso.toString());
             System.out.println("Victoire !");
         }else {
             System.out.println(mob.toString());
             System.out.println("Game Over !");
+            System.exit(0);
         }
 
 
@@ -148,12 +148,12 @@ public static void choixObjet(Personnage perso){
         Scanner scanner =new Scanner(System.in);
     System.out.println(" choisissez un objet :");
 
-    Objet bagueDeVie = new Objet("Bague de vie","acroit la santé de 50 points",200);
-       Objet grandeEpee = new Objet("Grande Epee","augmente la force de 60 points",100);
-       Objet lance = new Objet("Lance", "augmente l'attaque de 45 points ",75);
+    Objet bagueDeVie = new Objet("Bague de vie","acroit la santé de 200 points",0,200);
+       Objet grandeEpee = new Objet("Grande Epee","augmente la force de 100 points",100,0);
+       Objet lanceRouge = new Objet("Lance Rouge", "augmente l'attaque de 75 points et 80 points de santé",75,80);
     System.out.println("choix 1 : "+bagueDeVie.toString());
     System.out.println("choix 2 : "+grandeEpee.toString());
-    System.out.println("choix 3 : "+lance.toString());
+    System.out.println("choix 3 : "+lanceRouge.toString());
 
     int choix = scanner.nextInt();
 
@@ -161,17 +161,14 @@ public static void choixObjet(Personnage perso){
         switch (choix){
             case (1):{
                 perso.prendreObjet(bagueDeVie);
-                perso.setPv(perso.getPv() + bagueDeVie.getApport());
                 break;
             }
             case (2):{
                 perso.prendreObjet(grandeEpee);
-                perso.setAtk(perso.getAtk() + grandeEpee.getApport());
                 break;
             }
             case (3):{
-                perso.prendreObjet(lance);
-                perso.setAtk(perso.getAtk() + lance.getApport());
+                perso.prendreObjet(lanceRouge);
                 break;
             }
         }
@@ -180,10 +177,49 @@ public static void choixObjet(Personnage perso){
 
 
 }
+public static Objet loot(){
+        ArrayList<Objet>loots = new ArrayList<>();
 
 
 
 
 
+    Objet crocDeLune = new Objet("Croc de Lune","",140,150);
+        Objet rasoir = new Objet("Rasoir du fou","rasoir enchanté à ajouter à son bracelet",160,-80);
+        Objet cotteDeMaille = new Objet("Cotte de maille","Cotte de maille rouillé à l'entreJambes",0,200);
+        Objet Dague = new Objet("Dague d'acier","",90,0);
+        Objet BatonDuBerger = new Objet("baton du berger","baton de paix du celebre berger Xavier dupont de Ligonnes",-40,150);
+        Objet Bouton = new Objet("Bouton","Un bouton de chemise quoi ...",0,0);
+        Objet CoeurDuDragon = new Objet("Coeur du dragon","le coeur d'un dragon mort il y a un siecle",200,700);
+        Objet clouRouille = new Objet("Clou Rouille","Vous l'avez pris dans le pied",0,-20);
+        Objet Durandal = new Objet("Durandal","un epee sa mere...",550,0);
+        Objet Cuir = new Objet("Cuir","",0,0);
+        Objet Bottes = new Objet("Bottes","",0,50);
+        Objet casque = new Objet("Casque","",0,50);
+        Objet masse = new Objet("Masse","Une grosse masse, pour compenser...",250,0);
+        Objet Mjolnir = new Objet("Mjolnir","Le marteau de Thor",1500,200);
+        Objet ArmureDaedra = new Objet("Armure Daedra","Armure d'un seigneur dremora",500,1200);
+
+    loots.add(crocDeLune);
+    loots.add(rasoir);
+    loots.add(cotteDeMaille);
+    loots.add(Dague);
+    loots.add(BatonDuBerger);
+    loots.add(Bouton);
+    loots.add(CoeurDuDragon);
+    loots.add(clouRouille);
+    loots.add(Durandal);
+    loots.add(Cuir);
+    loots.add(Cuir);
+    loots.add(Cuir);
+    loots.add(Bottes);
+    loots.add(casque);
+    loots.add(masse);
+    loots.add(Mjolnir);
+    loots.add(ArmureDaedra);
+       int hasard = random.nextInt(loots.size());
+
+   return loots.get(hasard);
+}
 
 }

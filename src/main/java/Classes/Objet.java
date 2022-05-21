@@ -3,12 +3,14 @@ package Classes;
 public class Objet {
     private String nom;
     private String description;
-    private int apport;
+    private int apportAtk;
+    private int apportPv;
 
-    public Objet(String nom, String description, int apport) {
+    public Objet(String nom, String description, int apportAtk, int apportPv) {
         this.nom = nom;
         this.description = description;
-        this.apport = apport;
+        this.apportAtk = apportAtk;
+        this.apportPv = apportPv;
 
     }
 
@@ -28,12 +30,20 @@ public class Objet {
         this.description = description;
     }
 
-    public int getApport() {
-        return apport;
+    public int getApportAtk() {
+        return apportAtk;
     }
 
-    public void setApport(int apport) {
-        this.apport = apport;
+    public void setApportAtk(int apportAtk) {
+        this.apportAtk = apportAtk;
+    }
+
+    public int getApportPv() {
+        return apportPv;
+    }
+
+    public void setApportPv(int apportPv) {
+        this.apportPv = apportPv;
     }
 
     @Override
@@ -41,7 +51,8 @@ public class Objet {
         return "Objet{" +
                 "nom='" + nom + '\'' +
                 ", description='" + description + '\'' +
-                ", apport=" + apport +
+                ", apportAtk=" + apportAtk +
+                ", apportPv=" + apportPv +
                 '}';
     }
 }
