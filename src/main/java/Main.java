@@ -43,6 +43,12 @@ switch (commande){
         System.out.println("Vous vous reposer et recuperer "+ (perso.getPvTotal()- perso.getPv())+" PV sur " + perso.getPvTotal() +" !");
         System.out.println();
         Monde.repos(perso);
+        break;
+    }
+    case(3):{
+        System.out.println(perso.voirObjet());
+break;
+
     }
 }
     }while(commande != 0);

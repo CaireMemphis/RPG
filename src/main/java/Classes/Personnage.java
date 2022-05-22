@@ -26,7 +26,7 @@ pvTotal = pv;
         return "Personnage :" +
                 " nom = '" + getNom() + '\'' +
 
-                ",PV = " + getPv() + ", atk = " + getAtk() + ", objets = " + voirObjet();
+                ",PV = " + getPv() + ", atk = " + getAtk() + ", objets = " + VoirObjetAll();
     }
 
     public void prendreObjet(Objet objet){
@@ -43,8 +43,14 @@ pvTotal = pv;
         objets.remove(objet);
     }
     public String voirObjet(){
-        return objets.toString();
+       return objets.toString();
     }
-
+public String VoirObjetAll(){
+        String affich = "";
+    for (int i = 0; i < objets.size(); i++) {
+        affich += objets.get(i).toStringAll();
+    }
+        return affich;
+}
 
 }

@@ -1,6 +1,6 @@
 package Classes;
 
-public class Objet {
+public class Objet implements IObjet {
     private String nom;
     private String description;
     private int apportAtk;
@@ -14,40 +14,53 @@ public class Objet {
 
     }
 
+    @Override
     public String getNom() {
         return nom;
     }
 
+    @Override
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public void setDescription(String description) {
         this.description = description;
     }
 
+    @Override
     public int getApportAtk() {
         return apportAtk;
     }
 
+    @Override
     public void setApportAtk(int apportAtk) {
         this.apportAtk = apportAtk;
     }
 
+    @Override
     public int getApportPv() {
         return apportPv;
     }
 
+    @Override
     public void setApportPv(int apportPv) {
         this.apportPv = apportPv;
     }
 
-    @Override
-    public String toString() {
+
+    public String toStringAll() {
+return "-"+nom+"-";
+    }
+
+
+    public String toString(){
         return "Objet{" +
                 "nom='" + nom + '\'' +
                 ", description='" + description + '\'' +

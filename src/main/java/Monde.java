@@ -133,6 +133,7 @@ public static void combat(Personnage perso, Monstres mob){
 Objet loot = loot();
 
             System.out.println("Loot : " + loot );
+            System.out.println();
             perso.prendreObjet(loot);
             System.out.println(perso.toString());
             System.out.println("Victoire !");
@@ -151,9 +152,9 @@ public static void choixObjet(Personnage perso){
     Objet bagueDeVie = new Objet("Bague de vie","acroit la santé de 200 points",0,200);
        Objet grandeEpee = new Objet("Grande Epee","augmente la force de 100 points",100,0);
        Objet lanceRouge = new Objet("Lance Rouge", "augmente l'attaque de 75 points et 80 points de santé",75,80);
-    System.out.println("choix 1 : "+bagueDeVie.toString());
-    System.out.println("choix 2 : "+grandeEpee.toString());
-    System.out.println("choix 3 : "+lanceRouge.toString());
+    System.out.println("choix 1 : "+bagueDeVie.toStringAll());
+    System.out.println("choix 2 : "+grandeEpee.toStringAll());
+    System.out.println("choix 3 : "+lanceRouge.toStringAll());
 
     int choix = scanner.nextInt();
 
